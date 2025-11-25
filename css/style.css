@@ -1,0 +1,346 @@
+/* Основные переменные цветов */
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --gray-light: #e6e6e6;
+  --gray-dark: #1a1a1a;
+  --gray-medium: #cccccc;
+  --gray-text: #333333;
+  --gold-gradient: linear-gradient(45deg, #D4AF37, #FFD700, #F9D71C);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+  padding-bottom: 80px; /* Дополнительное пространство для нижней навигации */
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Шапка сайта */
+header {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 20px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Герой-секция */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, var(--gray-light) 100%);
+  border-bottom: 1px solid var(--gray-medium);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--black);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--gray-text);
+  margin-bottom: 25px;
+}
+
+/* Секция ввода */
+.input-section {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.input-section h2 {
+  color: var(--gray-dark);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  border: 1px solid var(--gray-medium);
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+/* Кнопки */
+.btn {
+  background: var(--gold-gradient);
+  color: var(--black);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Секция результатов */
+.result-section {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  display: none;
+}
+
+.result-section h2 {
+  color: var(--gray-dark);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.result-content {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #D4AF37;
+  color: var(--gray-text);
+}
+
+/* Карточки особенностей */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, var(--white) 0%, #f5f5f5 100%);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.feature-card h3 {
+  color: var(--gray-dark);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  color: var(--gray-text);
+  font-size: 0.95rem;
+}
+
+/* Подвал */
+footer {
+  background-color: var(--gray-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 40px;
+}
+
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Адаптивность для планшетов */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+/* Нижняя навигация для мобильных устройств */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--black);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  color: #D4AF37;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+/* Страница истории запросов */
+.history-item {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.history-query {
+  font-weight: bold;
+  color: var(--gray-dark);
+  margin-bottom: 5px;
+}
+
+.history-response {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+}
+
+/* Страница настроек */
+.settings-section {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.settings-section h2 {
+  color: var(--gray-dark);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--gray-light);
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--white);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #D4AF37;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* Добавление анимаций из отдельного файла */
+@import url('animations.css');

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки - KEV</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">KEV<span class="golden-text">AI</span></div>
+                <button class="menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Настройки</h1>
+            <p>Настройте работу нейросети под ваши предпочтения</p>
+        </section>
+        
+        <section class="settings-section">
+            <h2>Основные настройки</h2>
+            
+            <div class="setting-item">
+                <span>Темная тема</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <span>Уведомления</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <span>Автосохранение истории</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </section>
+        
+        <section class="settings-section">
+            <h2>Настройки нейросети</h2>
+            
+            <div class="setting-item">
+                <span>Детализация ответов</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <span>Творческий режим</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <span>Экспертный уровень</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </section>
+        
+        <section class="settings-section">
+            <h2>Конфиденциальность</h2>
+            
+            <div class="setting-item">
+                <span>Анонимная аналитика</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <span>Использование данных для обучения</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </section>
+        
+        <button class="btn">Сохранить настройки</button>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Neuro<span class="gold-text">AI</span> - Мобильная нейросеть</p>
+        </div>
+    </footer>
+    
+    <!-- Нижняя навигация -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon">🤖</span>
+            <span>Главная</span>
+        </a>
+        <a href="history.html" class="nav-item">
+            <span class="nav-icon">📚</span>
+            <span>История</span>
+        </a>
+        <a href="settings.html" class="nav-item active">
+            <span class="nav-icon">⚙️</span>
+            <span>Настройки</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-icon">ℹ️</span>
+            <span>О нас</span>
+        </a>
+    </nav>
+    
+    <script>
+        document.querySelectorAll('.toggle-switch input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                // В реальном приложении здесь будет сохранение настроек
+                console.log('Настройка изменена:', this.checked);
+            });
+        });
+        
+        document.querySelector('.btn').addEventListener('click', function() {
+            alert('Настройки успешно сохранены!');
+        });
+    </script>
+</body>
+</html>
