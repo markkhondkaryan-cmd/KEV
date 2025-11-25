@@ -54,6 +54,18 @@
             <h2>Настройки нейросети</h2>
             
             <div class="setting-item">
+                <span>Выбор нейросети</span>
+                <select id="neural-network-select" class="toggle-switch" style="width: auto; height: 24px; background-color: var(--white); border: 1px solid var(--gray-light); border-radius: 4px; padding: 0 5px; font-size: 0.9rem;">
+                    <option value="kev">KEV (локальная)</option>
+                    <option value="gpt-4">ChatGPT-4</option>
+                    <option value="gpt-3.5">ChatGPT-3.5</option>
+                    <option value="qwen">Qwen</option>
+                    <option value="deepseek">DeepSeek</option>
+                    <option value="claude">Claude</option>
+                </select>
+            </div>
+            
+            <div class="setting-item">
                 <span>Детализация ответов</span>
                 <label class="toggle-switch">
                     <input type="checkbox" checked>
