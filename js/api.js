@@ -2,6 +2,7 @@
 
 class NeuroAPI {
   constructor() {
+    this.currentModel = 'kev'; // по умолчанию используем KEV
     this.baseUrl = 'https://api.example-neuro-service.com'; // Заменить на реальный API
     this.apiKey = null; // Будет установлен при инициализации
   }
@@ -9,6 +10,11 @@ class NeuroAPI {
   // Установка API ключа
   setApiKey(apiKey) {
     this.apiKey = apiKey;
+  }
+
+  // Установка текущей модели нейросети
+  setCurrentModel(model) {
+    this.currentModel = model;
   }
 
   // Метод для отправки запроса к нейросети
