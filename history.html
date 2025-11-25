@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История запросов - Нейросеть</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Neuro<span class="golden-text">AI</span></div>
+                <button class="menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>История запросов</h1>
+            <p>Просмотрите ваши предыдущие запросы к нейросети</p>
+        </section>
+        
+        <div id="history-list">
+            <div class="history-item">
+                <div class="history-query">Как создать веб-сайт с нейросетью?</div>
+                <div class="history-response">Для создания веб-сайта с интеграцией нейросети, вам понадобится фронтенд для пользовательского интерфейса и бэкенд для обработки запросов к нейросети...</div>
+            </div>
+            
+            <div class="history-item">
+                <div class="history-query">Что такое искусственный интеллект?</div>
+                <div class="history-response">Искусственный интеллект (AI) - это область компьютерных наук, которая стремится создать программное обеспечение или машины, которые проявляют человеческий интеллект...</div>
+            </div>
+            
+            <div class="history-item">
+                <div class="history-query">Какие перспективы у нейросетей в 2025 году?</div>
+                <div class="history-response">Эксперты предсказывают, что в 2025 году нейросети будут играть еще более важную роль в различных отраслях, включая здравоохранение, образование и транспорт...</div>
+            </div>
+        </div>
+        
+        <button class="btn" id="clear-history">Очистить историю</button>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Neuro<span class="gold-text">AI</span> - Мобильная нейросеть</p>
+        </div>
+    </footer>
+    
+    <!-- Нижняя навигация -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon">🤖</span>
+            <span>Главная</span>
+        </a>
+        <a href="history.html" class="nav-item active">
+            <span class="nav-icon">📚</span>
+            <span>История</span>
+        </a>
+        <a href="settings.html" class="nav-item">
+            <span class="nav-icon">⚙️</span>
+            <span>Настройки</span>
+        </a>
+    </nav>
+    
+    <script src="js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const neuroAPI = new NeuroAPI();
+            const historyList = document.getElementById('history-list');
+            
+            // Загрузка истории при открытии страницы
+            loadHistory();
+            
+            async function loadHistory() {
+                try {
+                    const response = await neuroAPI.getHistory();
+                    if (response.success) {
+                        displayHistory(response.data);
+                    } else {
+                        historyList.innerHTML = '<p style="text-align: center; padding: 20px; color: var(--gray-text);">Ошибка при загрузке истории</p>';
+                    }
+                } catch (error) {
+                    historyList.innerHTML = '<p style="text-align: center; padding: 20px; color: var(--gray-text);">Ошибка соединения при загрузке истории</p>';
+                }
+            }
+            
+            function displayHistory(history) {
+                if (history.length === 0) {
+                    historyList.innerHTML = '<p style="text-align: center; padding: 20px; color: var(--gray-text);">История запросов пуста</p>';
+                    return;
+                }
+                
+                let historyHTML = '';
+                history.forEach(item => {
+                    const date = new Date(item.timestamp).toLocaleString('ru-RU');
+                    historyHTML += `
+                        <div class="history-item">
+                            <div class="history-query">${item.query}</div>
+                            <div class="history-response">${item.response}</div>
+                            <small style="display: block; margin-top: 8px; color: var(--gray-text);">${date}</small>
+                        </div>
+                    `;
+                });
+                
+                historyList.innerHTML = historyHTML;
+            }
+            
+            document.getElementById('clear-history').addEventListener('click', async function() {
+                if (confirm('Вы уверены, что хотите очистить всю историю запросов?')) {
+                    try {
+                        const response = await neuroAPI.clearHistory();
+                        if (response.success) {
+                            historyList.innerHTML = '<p style="text-align: center; padding: 20px; color: var(--gray-text);">История запросов пуста</p>';
+                        } else {
+                            alert('Ошибка при очистке истории');
+                        }
+                    } catch (error) {
+                        alert('Произошла ошибка при очистке истории');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
